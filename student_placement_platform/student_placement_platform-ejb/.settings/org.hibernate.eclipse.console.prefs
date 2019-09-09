@@ -1,0 +1,3 @@
+default.configuration=student_placement_platform-ejb
+eclipse.preferences.version=1
+hibernate3.enabled=true

@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets" 
+template="/template/template.xhtml">
+<ui:param name="page_name" value="Accueil" />
+<ui:define name="content">
+<h:panelGroup>
+<h:form>
+<h:outputText value="Bonjour #{loginBean.user.email}" />  
+<f:param value="#{loginBean.email}" />
+<h:commandLink value="Déconnexion" action="#{loginBean.doLogout()}" />
+</h:form>
+</h:panelGroup>
+<h:panelGroup columns="2"><h:form><table>
+
+<tr><td><h:outputText value="Supervised"></h:outputText></td>
+<td><h:inputText value="#{userBean.supervised}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Reported"></h:outputText></td>
+<td><h:inputText value="#{userBean.reported}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Treated"></h:outputText></td>
+<td><h:inputText value="#{userBean.treated}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Motif"></h:outputText></td>
+<td><h:inputText value="#{userBean.motif}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Fonctionalities"></h:outputText></td>
+<td><h:inputText value="#{userBean.fonctonalities}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Title"></h:outputText></td>
+<td><h:inputText value="#{userBean.title}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Keywords"></h:outputText></td>
+<td><h:inputText value="#{userBean.keywords}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Problematic"></h:outputText></td>
+<td><h:inputText  value="#{userBean.problematic}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Personal E-mail"></h:outputText></td>
+<td><h:inputText value="#{userBean.personal_email}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Professional E-mail"></h:outputText></td>
+<td><h:inputText value="#{userBean.professional_email}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Supervisor E-mail"></h:outputText></td>
+<td><h:inputText  value="#{userBean.supervisor_email}"></h:inputText></td></tr>
+
+
+<tr><td colspan="2"><h:commandLink value="Add A New Placement Form" action="#{userBean.addPf()}" /></td></tr>
+</table>
+</h:form>
+</h:panelGroup> 
+</ui:define>
+</ui:composition> 

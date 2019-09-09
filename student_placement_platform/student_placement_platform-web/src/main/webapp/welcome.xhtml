@@ -1,0 +1,73 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:ui="http://java.sun.com/jsf/facelets" 
+template="/template/template.xhtml">
+<ui:param name="page_name" value="Accueil" />
+<ui:define name="content">
+<h:panelGroup>
+<h:form>
+<h:outputText value="Bonjour #{loginBean.user.email}" />  
+<f:param value="#{loginBean.email}" />
+<h:commandLink value="Déconnexion" action="#{loginBean.doLogout()}" />
+</h:form>
+</h:panelGroup>
+<h:outputFormat value="Here are all the PlacementForms :"> </h:outputFormat> 
+<h:panelGroup columns="2">
+<h:form>
+
+<h:dataTable value="#{userBean.placementForms}" var="o" styleClass="userBean-table" headerClass="userBean-table-header"
+  rowClasses="userBean-table-odd-row,userBean-table-even-row" border="3">
+
+ <h:column><f:facet name="header"><h:outputText value="Fonctionalities" /></f:facet>
+<h:outputText value="#{o.fonctonalities}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Title" /></f:facet>
+<h:outputText value="#{o.title}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Date creation" /></f:facet>
+<h:outputText value="#{o.creation_date}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Keywords" /></f:facet>
+<h:outputText value="#{o.keywords}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Problematic" /></f:facet>
+<h:outputText value="#{o.problematic}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Motif" /></f:facet>
+<h:outputText value="#{o.motif}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Supervised" /></f:facet>
+<h:outputText value="#{o.supervised}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Reported" /></f:facet>
+<h:outputText value="#{o.reported}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Treated" /></f:facet>
+<h:outputText value="#{o.treated}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Personal E-mail" /></f:facet>
+<h:outputText value="#{o.personal_email}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Professional E-mail" /></f:facet>
+<h:outputText value="#{o.professional_email}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Supervisor E-mail" /></f:facet>
+<h:outputText value="#{o.supervisor_email}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Action" /></f:facet>
+<h:commandLink value="Delete" action="#{userBean.deleteAction(o)}" />
+</h:column>
+
+</h:dataTable>
+<tr><td colspan="2"><h:commandLink value="Ajouter une fiche PFE" action="/add?faces-redirect=true"/></td></tr>
+
+</h:form>
+</h:panelGroup>
+</ui:define>
+</ui:composition> 
+    		
+    		
+    		
+    		
+    		
